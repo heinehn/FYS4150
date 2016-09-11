@@ -1,0 +1,67 @@
+\documentclass[11pt,twoside,a4paper]{article}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[english,norsk]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor,graphicx,wrapfig,lipsum}
+\usepackage{amsmath}
+
+\usepackage{array} 
+\usepackage{multicol}
+\setlength{\columnsep}{2cm}
+\usepackage{multirow}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{standalone}
+\usepackage{tikz}
+
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage[export]{adjustbox}
+
+\usepackage[margin=2cm]{geometry}
+
+\newcommand{\nl}{
+
+\medskip
+\noindent
+
+}
+
+
+\pagestyle{plain}
+
+
+\begin{document}
+
+\input{FYS4150_ex1_front}
+
+\section*{Introduction}
+
+In this assignment we are going to solve a linear second-order differential equation numerically.
+\nl
+The programming language of choice is c++ and all programming was done in Qt.
+
+\section*{Metod}
+\subsection*{Differential equations}
+
+Alot of physics problems involve solving a linear differential equations. Examples of these are the Schrödinger equation, diffusion equation and poisson's equation.
+\nl
+The thing all these equations have the form 
+
+\begin{align*}
+\nabla f(x) = cf(x)
+\end{align*}
+
+where $\nabla = \frac{\partial^2}{\partial x^2}$ the second order partial derivative. $c$ is a constant and $f(x)$ is a known function.
+
+\subsection*{Nummerical derivation}
+
+Derivation decribes the curvature of a function and the second order derivative decribes its slope. The general formula for the first order derivative is
+
+\begin{align*}
+\frac{\partial}{\partial x} = \frac{x_i - x_{i-1}}{h}
+\end{align*}
+
+\end{document}

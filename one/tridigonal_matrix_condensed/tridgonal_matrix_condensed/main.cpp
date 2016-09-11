@@ -30,12 +30,12 @@ int main() {
     char *filename;
     int N;
     string str;
-    string format = ".txt"
+    string format = ".txt";
     cout << "Number of iterations:" << endl;
     cin >> N;
     cout << "Filename and format:" << endl;
-    cin >> filename;
-    str.append(filename,format);
+    cin >> str;
+    //str.append(filename,format);
 
     //Set steplenght
     double h = 1.0/(N+1.0);
@@ -72,7 +72,7 @@ int main() {
 
 
     //write to file
-    ofile.open(filename);
+    ofile.open(str);
     ofile << setiosflags(ios::showpoint | ios::uppercase);
     ofile << "      x:      approx:     exact:  " << endl;
     for(int i=0;i<N;i++){

@@ -7,9 +7,12 @@ import os
 my_path = os.path.abspath(r"C:\Users\Heine\Desktop\Skole\FYS4150_Comp_Fys\FYS4150\Exercise_1\plot")
 os.chdir(r"C:\Users\Heine\Desktop\Skole\FYS4150_Comp_Fys\FYS4150\Exercise_1\plot")
 
-file = np.loadtxt("my_file.txt", dtype = 'float', skiprows = 1, usecols = (0,1,2))
+file = np.loadtxt("10e6task_c.txt", dtype = 'float', skiprows = 2, usecols = (0,1,2))
 
-print(file)
+file_lenght = str(len(file))
+file_header = "Number of iterations " + file_lenght
+#print file , file_lenght
+
 
 #Plotting
 fig = figure()
@@ -21,7 +24,7 @@ plot(file[:,0],file[:,2],'b-', label = '$exact solution$ ')
 
 xlabel(r'$x$', size = 20,labelpad= 5 )
 ylabel(r'$f(x)$',size = 20, labelpad = 5)
-title( r'Plot with 10 iteations' )
+title(file_header)
 legend(loc='smart')
-fig.savefig('my_plot.png')
+fig.savefig('10e6ex_c.png')
 show()

@@ -65,13 +65,15 @@ int main(int argc, char* argv[]) {
         //cout << "x = " << x[i] << " and " << "h^2*f(x) = " << h*h*f(x[i]) << endl;
     }
 
+    //cout << "h=" << h << " and " << "h^2=" << h*h <<endl;
+
     // Filling up b_twiddle array, i.e. right hand side of equation:
     for (int i=1; i<=n; i++) {
         b_twidd[i] = h*h*f(x[i]);
         // Could print here to check:
-        //cout << "b_twidd = " << b_twidd[i] << "for x = " << x[i] << endl;
+        //cout << "b_twidd = " << b_twidd[i];
         u[i] = Solution(x[i]);
-        //cout << "u = " << u[i] << " for x = " << x[i] <<  endl;
+        //cout << " u(solution) = " << u[i] << " for x = " << x[i] <<  endl;
         b[i] = 2;
         a[i] = -1;
         c[i] = -1;
@@ -87,17 +89,27 @@ int main(int argc, char* argv[]) {
     for (int i=2;i<=n;i++) {
        // Temporary value needed also in next loop:
        diag_temp[i] = c[i-1]/b_temp;
+       //cout << "diag_temp "<<diag_temp[i];
        // Temporary diagonal element:
        b_temp = b[i] - a[i]*diag_temp[i];
+       //cout << " b_temp "<<b_temp;
        // Updating right hand side of matrix equation:
        v[i] = (b_twidd[i]-v[i-1]*a[i])/b_temp;
-       cout << b_temp << endl;
+       //cout << " v = f = "<< v[i] << endl;
     }
 
     // Row reduction; backward substition:
     for (int i=n-1;i>=1;i--) {
         v[i] -= diag_temp[i+1]*v[i+1];
+        //cout << "v = "<<v[i]<< endl;
     }
+
+    for(int i=0;i<n+1;i++){
+        cout<<" u = "<<v[i];
+        cout<<" f_exact = "<<u[i]<<endl;
+    }
+
+
 
     // Open file and write results to file:
     ofile.open(outfilename);
